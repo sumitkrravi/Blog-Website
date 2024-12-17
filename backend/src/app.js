@@ -17,7 +17,8 @@ app.use(cookieparser());
 import {router} from "./routes/UserRoute.js"
 
 app.use("/user" , router)
-console.log("Hello");
+console.log("bye");
+
 
 
 
