@@ -5,20 +5,20 @@ import { GetUser } from "../controller/UserController.js"
 import { Logout } from "../controller/UserController.js"
 import { VerifyUser } from "../middleware/AuthMiddleware.js"
 
-const router = Router();
+const userrouter = Router();
 
-router.route("/signup").post(
+userrouter.route("/signup").post(
     Register
 )
 
-router.route("/login").post(
+userrouter.route("/login").post(
     Login
 )
-router.route("/me").get(
+userrouter.route("/me").get(
     VerifyUser, GetUser
 )
-router.route("/logout").post(
+userrouter.route("/logout").post(
     VerifyUser, Logout
 )
 
-export { router }
+export { userrouter }

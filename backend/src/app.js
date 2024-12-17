@@ -6,20 +6,24 @@ import cookieparser from 'cookie-parser'
 const app = express();
 
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
-    Credential:true
+    origin: process.env.CORS_ORIGIN,
+    Credential: true
 }))
 
-app.use(express.json({limit:"24kb"}));
-app.use(express.urlencoded({limit:"24kb" ,  extended:true}));
+app.use(express.json({ limit: "24kb" }));
+app.use(express.urlencoded({ limit: "24kb", extended: true }));
 app.use(cookieparser());
 
-import {router} from "./routes/UserRoute.js"
+import { userrouter } from "./routes/UserRoute.js"
 
-app.use("/user" , router)
+app.use("/user", userrouter)
+
+import { blogrouter } from "./routes/BlogRoute.js"
+
+app.use("/blog", blogrouter)
 
 
 
 
 
-export {app}
+export { app }
