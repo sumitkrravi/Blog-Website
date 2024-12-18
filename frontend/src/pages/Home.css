@@ -1,0 +1,125 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Overall Page Styling */
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Navbar Styling */
+  nav {
+    background: #1e293b; /* Dark blue-gray */
+    color: #f8fafc; /* Light text */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav h2 {
+    font-size: 1.5rem;
+    color: #93c5fd; /* Light blue */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #f8fafc;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #60a5fa; /* Light blue hover */
+    border-radius: 5px;
+    color: #1e293b; /* Dark blue text */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section input {
+    margin: 20px 0;
+    padding: 10px 15px;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+  }
+  
+  .hero-section .link a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: white;
+    color: #2575fc;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hero-section .link a:hover {
+    background-color: #2575fc;
+    color: white;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #1e293b;
+    color: #f8fafc;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-section .link-section a {
+    color: #93c5fd;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .footer-section .link-section a:hover {
+    color: #60a5fa;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-section input {
+      width: 90%;
+    }
+  }
+  

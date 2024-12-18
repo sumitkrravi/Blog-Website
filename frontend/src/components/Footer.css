@@ -1,0 +1,54 @@
+/* Footer Styles */
+footer {
+    background-color: #1e293b; /* Dark blue-gray */
+    color: #f8fafc; /* Light text color */
+    padding: 30px 20px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .footer-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer-section p {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .link-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .link-section a {
+    text-decoration: none;
+    color: #93c5fd; /* Light blue */
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  
+  .link-section a:hover {
+    color: #60a5fa; /* Slightly darker blue */
+  }
+  
+  .copy-right-section {
+    font-size: 0.8rem;
+    color: #cbd5e1; /* Muted text */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .link-section {
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+  }
+  

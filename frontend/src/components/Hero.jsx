@@ -1,5 +1,12 @@
 import React from "react";
-import "../App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
+import "./Hero.css";
 function Hero() {
   return (
     <>
@@ -119,15 +126,31 @@ function Hero() {
 
 
       <section>
-        <div className="community-section">
-            <h1>Join the Conversation Online</h1>
+      <div className="community-section">
+        <h1>Join the Conversation Online</h1>
         <div className="icon-cards">
-            <a href="#"><span>Icon</span><br />Facebook</a>
-            <a href="#"><span>Icon</span><br />Instagram</a>
-            <a href="#"><span>Icon</span><br />Linkedin</a>
-            <a href="#"><span>Icon</span><br />Twitter</a>
-          </div>
+          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faFacebook} className="icon" />
+            <br />
+            Facebook
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faInstagram} className="icon" />
+            <br />
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faLinkedin} className="icon" />
+            <br />
+            LinkedIn
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faTwitter} className="icon" />
+            <br />
+            Twitter
+          </a>
         </div>
+      </div>
       </section>
     </>
   );
