@@ -18,7 +18,7 @@ body{
     margin: 0 auto;
 }
 
-.featured-section , .about-section ,.call-section , .tag-section , .author-section, .community-section, .footer-section{
+.featured-section , .about-section ,.call-section , .author-section, .community-section{
     margin: 3rem 0;
     height: auto;
     border: 1px solid;
