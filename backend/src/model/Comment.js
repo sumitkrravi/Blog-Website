@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 
 const commentSchema = new Schema({
 
-    Comment: {
+    comment: {
         type: String,
         trim: true
     },
@@ -13,4 +13,4 @@ const commentSchema = new Schema({
     }
 }, { timestamps: true })
 
-export const BlogComment = mongoose.model("BlogCommet", commentSchema);
+export const BlogComment = mongoose.model("BlogComment", commentSchema);
