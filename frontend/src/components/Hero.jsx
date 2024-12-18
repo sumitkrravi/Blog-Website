@@ -134,7 +134,7 @@ function Hero() {
             <br />
             Facebook
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/sumitravi.in" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faInstagram} className="icon" />
             <br />
             Instagram
