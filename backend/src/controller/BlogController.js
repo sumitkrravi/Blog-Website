@@ -3,19 +3,24 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { UserDetails } from "../model/User.js";
 import { Blog } from "../model/Blog.js"
+import { UploadFile } from "../utils/Cloudinary.js";
 import mongoose from "mongoose";
 
 
 const CreateBlog = AsyncHandler(async (req, res) => {
 
-    const { blogtitle, blogcontent, blogthumbnailurl } = req.body;
+    const { blogtitle, blogcontent} = req.body;
 
     const user = req.user.id
+
+    const blogthumbnaillocalpath = req.files?.blogthumbnailurl[0]?.path;
+
+    const blogthumbnailuploade = await UploadFile(blogthumbnaillocalpath)
 
     const BlogCreated = await Blog.create({
         blogtitle,
         blogcontent,
-        blogthumbnailurl,
+        blogthumbnailurl:blogthumbnailuploade.url,
         blogauthor: user
     })
 
