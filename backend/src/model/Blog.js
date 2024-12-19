@@ -1,4 +1,4 @@
-import mongoose, { Mongoose, Schema } from 'mongoose';
+import mongoose, { mongoose, Schema } from 'mongoose';
 
 const blogSchema = new Schema({
     blogtitle: {
