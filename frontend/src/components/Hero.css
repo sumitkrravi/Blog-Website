@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: "Arial", sans-serif;
     line-height: 1.5;
+    background-color: #f1f5f9;
   }
   
   section {
@@ -290,5 +291,5 @@ body {
 }
 
 .icon-cards a:nth-child(2):hover .icon {
-  color: #c13584; /* Darker In
+  color: #c13584; /* Darker In}
 

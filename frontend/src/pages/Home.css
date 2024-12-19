@@ -5,6 +5,7 @@ body {
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    background-color: 0;
   }
   
   /* Overall Page Styling */
@@ -12,6 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #93c5fd;
   }
   
   /* Navbar Styling */
@@ -20,6 +22,7 @@ body {
     color: #f8fafc; /* Light text */
     padding: 15px 30px;
     display: flex;
+    margin: 10px auto;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
