@@ -92,14 +92,14 @@ const Login = AsyncHandler(async (req, res) => {
 
     const { RefreshToken, AccessToken } = await GenerateRefreshAndAccessToken(user);
 
-    const Option = {
+    const option = {
         httpOnly: true,
-        secure: true
+        secure:process.env.NODE_ENV === 'production'
     }
 
     return res.status(200)
-        .cookie("RefreshToken:", RefreshToken, Option)
-        .cookie("AccessToken:", AccessToken, Option)
+        .cookie("RefreshToken", RefreshToken, option)
+        .cookie("AccessToken", AccessToken, option)
         .json(
             new ApiResponse(
                 201,
@@ -142,8 +142,8 @@ const Logout = AsyncHandler(async (req, res) => {
     }
 
     return res.status(200)
-        .clearcookie("RefreshToken", Option)
-        .clearcookie("AccessToken", Option)
+        .clearCookie("RefreshToken", Option)
+        .clearCookie("AccessToken", Option)
         .json(
             new ApiResponse(
                 200,

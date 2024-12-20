@@ -13,9 +13,13 @@ const CreateBlog = AsyncHandler(async (req, res) => {
 
     const user = req.user.id
 
-    const blogthumbnaillocalpath = req.files?.blogthumbnailurl[0]?.path;
+    const blogthumbnaillocalpath = req.file?.path;
+    console.log(blogthumbnaillocalpath);
 
     const blogthumbnailuploade = await UploadFile(blogthumbnaillocalpath)
+   console.log(blogthumbnailuploade);
+   
+   
 
     const BlogCreated = await Blog.create({
         blogtitle,
