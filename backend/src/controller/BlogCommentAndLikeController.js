@@ -11,11 +11,18 @@ import mongoose from "mongoose";
 const BlogComments = AsyncHandler(async (req, res) => {
     const { comment } = req.body;
     const userId = req.user.id;
+    const blogId = req.params.id;
 
     const comments = await BlogComment.create({
         comment,
         user: userId
     })
+
+    await Blog.findByIdAndUpdate(
+        blogId,
+        { $push: { blogcomment: comments._id } },
+        { new: true }
+    )
 
     if (!comments) {
         return res.status(500).json(
@@ -38,17 +45,17 @@ const BlogComments = AsyncHandler(async (req, res) => {
 })
 
 const GetBlogWithComments = AsyncHandler(async (req, res) => {
-    const { blogId } = req.params;
+    const { blogId } = req.params.id;
 
-    const blog = await Blog.findById(blogId)
+    const blog = await Blog.findById(blogId).select('blogcomment')
         .populate({
             path: 'blogcomment',
-            select: 'comment',
-            populate: {
-                path: 'user',
-                model: 'UserDetails',
-                select: 'name',
-            },
+                select: 'comment user',
+                populate: {
+                    path: 'user',
+                    model: 'UserDetails',
+                    select: 'username',
+                },
         })
 
     return res.status(200).json(
@@ -62,7 +69,7 @@ const GetBlogWithComments = AsyncHandler(async (req, res) => {
 
 
 const BlogLike = AsyncHandler(async (req, res) => {
-    const { blogId } = req.body;
+    const  blogId  = req.params.id;
     const userId = req.user.id;
 
     const existingLike = await BlogLikes.findOne({ user: userId, blog: blogId });
@@ -84,6 +91,21 @@ const BlogLike = AsyncHandler(async (req, res) => {
         blog: blogId,
         user: userId,
     });
+   
+
+    await BlogLikes.findByIdAndUpdate(
+        blogId,
+        { $push: { blog: newLike._id } },
+        { new: true }
+    )
+
+    await Blog.findByIdAndUpdate(
+        blogId,
+        { $push: { bloglike: newLike._id } },
+        { new: true }
+    )
+
+
 
     if (!newLike) {
         return res.status(500).json(
@@ -105,7 +127,7 @@ const BlogLike = AsyncHandler(async (req, res) => {
 })
 
 const GetBlogLikes = AsyncHandler(async (req, res) => {
-    const { blogId } = req.params;
+    const { blogId } = req.params.id;
 
     const likes = await BlogLikes.find({ blog: blogId })
         .populate({
@@ -118,9 +140,7 @@ const GetBlogLikes = AsyncHandler(async (req, res) => {
     return res.status(200).json(
         new ApiResponse(
             200,
-            likes.map(like => ({
-                userName: like.user.name
-            })),
+            {likes},
             "Likes fetched successfully"
         )
     );

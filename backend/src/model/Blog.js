@@ -12,17 +12,23 @@ const blogSchema = new Schema({
     },
     blogthumbnailurl: {
         type: String,
-        require: true
+        require:true
     },
     blogauthor: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'UserDetails',
         require: true
     },
     blogcomment: [
         {
-            type: mongoose.Schema.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'BlogComment'
+        }
+    ],
+    bloglike: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'BlogLike'
         }
     ]
 

@@ -9,24 +9,24 @@ import mongoose from "mongoose";
 
 const CreateBlog = AsyncHandler(async (req, res) => {
 
-    const { blogtitle, blogcontent} = req.body;
+    const { blogtitle, blogcontent, blogthumbnailurl} = req.body;
 
     const user = req.user.id
-
-    const blogthumbnaillocalpath = req.file?.path;
-    console.log(blogthumbnaillocalpath);
-
-    const blogthumbnailuploade = await UploadFile(blogthumbnaillocalpath)
-   console.log(blogthumbnailuploade);
-   
-   
-
     const BlogCreated = await Blog.create({
         blogtitle,
         blogcontent,
-        blogthumbnailurl:blogthumbnailuploade.url,
+        blogthumbnailurl,
         blogauthor: user
     })
+
+
+    await UserDetails.findByIdAndUpdate(
+        user,
+        { $push: { blog: BlogCreated._id } },
+        { new: true } 
+    );
+    console.log(BlogCreated);
+    
 
     if (!BlogCreated) {
         return res.status(500).json(
