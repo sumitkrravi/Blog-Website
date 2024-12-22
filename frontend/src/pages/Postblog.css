@@ -1,0 +1,77 @@
+/* General Post Styling */
+.post-blog {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post-header h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .post-actions button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .post-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .post-body {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .post-likes button {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .post-likes button:hover {
+    background-color: #218838;
+  }
+  
+  .post-comments {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  /* FontAwesome icon styling */
+  button {
+    display: flex;
+    align-items: center;
+  }
+  
+  button svg {
+    margin-right: 5px;
+  }
+  

@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../pages/Login'
 import Home from '../pages/Home'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
@@ -9,21 +9,21 @@ function Navbar() {
     <>
       <nav className=''>
         <div>
-          <h2 className="">BlogOasis</h2>
+          <Link to="/"><h2 className="">BlogOasis</h2></Link>
         </div>
         <div>
           <ul className=''>
             <li className=''>
-              <a href="#">Blog</a>
+              <Link to="/blog">Blog</Link>
             </li>
             <li className=''>
-              <a href="#">Authors</a>
+              <a href="#authors">Authors</a>
             </li>
             <li className=''>
-              <a href="#">About</a>
+              <a href="#about">About</a>
             </li>
             <li className=''>
-              <a href="#">Contribute</a>
+              <Link to="/contribute">Contribute</Link>
             </li>
             <li className=''>
               <a href="#">Help</a>
@@ -32,12 +32,12 @@ function Navbar() {
         </div>
 
         <div className="">
-          <a href="#" className="">
+          <Link to="/createblog" className="">
             Create Blog
-          </a>
-          <a href="#" className="">
+          </Link>
+          <Link to="/signup" className="">
             Signup
-          </a>
+          </Link>
         </div>
       </nav>
     </>

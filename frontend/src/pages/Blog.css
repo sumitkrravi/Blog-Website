@@ -1,0 +1,155 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  .blog-section-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .filter-section a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .filter-section a:hover {
+    color: #007bff;
+  }
+  
+  .language-dropdown {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .blog-section-body {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .blog a{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 20px;
+  }
+  .blog-thumbnail {
+    width: 250px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  
+  .blog-overviews {
+    flex: 1;
+  }
+  
+  .blog-overviews p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .blog-overviews span {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .blog-overviews .comments-likes {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .blog-overviews .comments-likes span {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .blog-section-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .filter-section {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  
+    .blog {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .blog-thumbnail {
+      width: 100%;
+      height: 180px;
+      margin-bottom: 15px;
+    }
+  
+    .blog-overviews {
+      text-align: center;
+    }
+  
+    .blog-overviews p {
+      font-size: 16px;
+    }
+  
+    .blog-overviews .comments-likes {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .blog-thumbnail {
+      height: 120px;
+    }
+  
+    .language-dropdown {
+      font-size: 14px;
+    }
+  
+    .blog-overviews p {
+      font-size: 14px;
+    }
+  
+    .blog-overviews .comments-likes span {
+      font-size: 10px;
+    }
+  }
+  

@@ -7,6 +7,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import "./Hero.css";
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <>
@@ -47,7 +48,7 @@ function Hero() {
               </div>
             </div>
           </div>
-          <a href="#">View More</a>
+          <Link to="/blog">View More</Link>
         </div>
       </section>
 
@@ -77,7 +78,7 @@ function Hero() {
       </section>
 
       <section>
-        <div className="about-section">
+        <div className="about-section" id="about">
           <h1>Why Choose BlogOasis?</h1>
           <p>
             Welcome to BlogOasis – your go-to platform for discovering and
@@ -106,7 +107,7 @@ function Hero() {
 
 
       <section>
-        <div className="author-section">
+        <div className="author-section" id="authors">
             <h1>Meet Our Creators</h1>
         <div className="author-cards">
             {/* card slider */}

@@ -9,6 +9,8 @@ function Home() {
    <Navbar/>
    <Hero/>
    <Footer/>
+
+
     </>
   )
 }

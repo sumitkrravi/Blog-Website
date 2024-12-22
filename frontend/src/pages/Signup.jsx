@@ -1,5 +1,5 @@
 import React from "react";
-import './Login.css'
+import './Signup.css'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,6 +7,10 @@ import * as yup from "yup";
 
 // Define the Yup validation schema
 const schema = yup.object().shape({
+  name: yup
+    .string()
+    .matches(/^[a-zA-Z ]+$/, "Name must contain only letters and spaces")
+    .required("Name is required"),
   email: yup
     .string()
     .email("Invalid email")
@@ -24,10 +28,10 @@ const schema = yup.object().shape({
     .required("Password is required"),
 });
 
-function Login() {
+function Signup() {
   // Form validation
   const {
-    register: loginField,
+    register: signupField,
     handleSubmit,
     formState: { errors },
     reset,
@@ -43,13 +47,21 @@ function Login() {
 
   return (
     <>
-      <div className="login-section">
-        <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-          <h1>Login</h1>
+      <div className="signup-section">
+        <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
+          <h1>Signup</h1>
+          <div className="form-group">
+            <input
+              type="text"
+              {...signupField("name")}
+              placeholder="Name"
+            />
+            {errors.name && <p className="error">{errors.name.message}</p>}
+          </div>
           <div className="form-group">
             <input
               type="email"
-              {...loginField("email")}
+              {...signupField("email")}
               placeholder="Email"
             />
             {errors.email && <p className="error">{errors.email.message}</p>}
@@ -57,17 +69,14 @@ function Login() {
           <div className="form-group">
             <input
               type="password"
-              {...loginField("password")}
+              {...signupField("password")}
               placeholder="Password"
             />
             {errors.password && <p className="error">{errors.password.message}</p>}
           </div>
-          <a href="/forgot-password">Forgot Password?</a>
-          <button className="login-btn">Login</button>
+          <button className="signup-btn">Signup</button>
           <p className="switch-login">
-            Don’t have an account? <Link to="/signup">Create Account</Link>
-          </p>
-          <p className="forgot-password">
+            Already have an account? <Link to="/login">Login here</Link>
           </p>
         </form>
       </div>
@@ -75,4 +84,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
