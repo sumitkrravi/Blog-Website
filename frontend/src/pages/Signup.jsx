@@ -1,5 +1,7 @@
 import React from "react";
 import './Signup.css'
+import { useNavigate } from "react-router-dom";
+import API from "../axios/Axiosinstance";
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,7 +9,7 @@ import * as yup from "yup";
 
 // Define the Yup validation schema
 const schema = yup.object().shape({
-  name: yup
+  username: yup
     .string()
     .matches(/^[a-zA-Z ]+$/, "Name must contain only letters and spaces")
     .required("Name is required"),
@@ -29,6 +31,7 @@ const schema = yup.object().shape({
 });
 
 function Signup() {
+  const navigation = useNavigate()
   // Form validation
   const {
     register: signupField,
@@ -39,8 +42,25 @@ function Signup() {
     resolver: yupResolver(schema), // Integrate yup with react-hook-form
   });
 
+   const sendData = async(data)=>{
+    try {
+       const res = await API.post('/signup',data)
+       const response = res.data.message;
+          console.log(localStorage);
+          console.log(response);
+          
+        if(response == 'Success'){
+         navigation('/login') 
+        }
+    } catch (error) {
+       console.log(error);
+       
+    }
+     
+  }
+
   const onSubmit = (data) => {
-    console.log(data);
+    sendData(data)
     // After submit, reset the form fields
     reset();
   };
@@ -53,7 +73,7 @@ function Signup() {
           <div className="form-group">
             <input
               type="text"
-              {...signupField("name")}
+              {...signupField("username")}
               placeholder="Name"
             />
             {errors.name && <p className="error">{errors.name.message}</p>}

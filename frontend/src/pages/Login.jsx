@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import API from "../axios/Axiosinstance";
+import { useNavigate } from "react-router-dom";
+
 // Define the Yup validation schema
 const schema = yup.object().shape({
   email: yup
@@ -25,6 +28,9 @@ const schema = yup.object().shape({
 });
 
 function Login() {
+
+   const navigation = useNavigate()
+
   // Form validation
   const {
     register: loginField,
@@ -35,8 +41,26 @@ function Login() {
     resolver: yupResolver(schema), // Integrate yup with react-hook-form
   });
 
+  const sendData = async(data)=>{
+    try {
+       const res = await API.post('/login',data)
+       const response = res.data.message;
+          console.log(localStorage);
+          console.log(response);
+          
+        if(response == 'Login Successfully'){
+
+         navigation('/') 
+        }
+    } catch (error) {
+       console.log(error);
+       
+    }
+     
+  }
+
   const onSubmit = (data) => {
-    console.log(data);
+    sendData(data);
     // After submit, reset the form fields
     reset();
   };
