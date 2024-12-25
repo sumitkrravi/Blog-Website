@@ -47,6 +47,7 @@ function Navbar() {
         </div>
         <div>
           <ul>
+            <li><Link to="/blog">Home</Link></li>
             <li><Link to="/blog">Blog</Link></li>
             <li><a href="#authors">Authors</a></li>
             <li><a href="#about">About</a></li>
