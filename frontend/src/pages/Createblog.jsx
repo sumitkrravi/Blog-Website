@@ -2,6 +2,7 @@ import { useState } from "react";
 import './Createblog'
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import './Createblog.css'
 
 function Createblog() {
   // Initial form data
@@ -29,7 +30,7 @@ function Createblog() {
   };
 
   return (
-    <section>
+    <div className="Createblog-page">
       <div className="create-blog">
         <h2>Create a New Blog</h2>
 
@@ -82,7 +83,7 @@ function Createblog() {
           )}
         </Formik>
       </div>
-    </section>
+    </div >
   );
 }
 
