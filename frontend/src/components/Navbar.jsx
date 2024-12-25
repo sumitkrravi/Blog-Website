@@ -49,7 +49,7 @@ function Navbar() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/blog">Blog</Link></li>
-            <li><a href="#authors">Authors</a></li>
+            <li><a href="/Author">Authors</a></li>
             <li><a href="#about">About</a></li>
             <li><Link to="/contribute">Contribute</Link></li>
             <li><a href="#">Help</a></li>
