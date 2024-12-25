@@ -7,6 +7,7 @@ import Blog from './pages/Blog'
 import Contribute from "./pages/Contribute";
 import Login from "./pages/Login";
 import axios from "axios"
+import Author from "./pages/Author";
 // Other imports for your components
 
 function App() {
@@ -46,18 +47,19 @@ function App() {
   // }
   return (
     <>
-     <Router> {/* Only one Router component here */}
-       <Routes> {/* Define your routes here */}
-         <Route path="/" element={<Home />} /> {/* Correct spelling for "element" */}
-         <Route path="/signup" element={<Signup />} />
-         <Route path="/createblog" element={<Createblog />} />
-         <Route path="/blog" element={<Blog />} />
-         <Route path="/contribute" element={<Contribute />} />
-         <Route path="/login" element={<Login />} />
-       </Routes>
-     </Router>
-   
-    
+      <Router> {/* Only one Router component here */}
+        <Routes> {/* Define your routes here */}
+          <Route path="/" element={<Home />} /> {/* Correct spelling for "element" */}
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/createblog" element={<Createblog />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contribute" element={<Contribute />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/author" element={<Author />} />
+        </Routes>
+      </Router>
+
+
     </>
   );
 }
